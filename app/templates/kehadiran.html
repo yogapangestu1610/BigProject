@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+{% block content%}
+
+<div id="contact" class="contact-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+            <h4>Daftar <em>Hadir</em></h4>
+            <div class="line-dec"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Mata Kuliah</th>
+                <th scope="col">Waktu</th>
+                <th scope="col">Kehadiran</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for no, i in data %}
+              <tr>
+                <th scope="row">{{no}}</th>
+                <td>{{i.nama}}</td>
+                <td>{{i.mata_kuliah}}</td>
+                <td>{{i.waktu}}</td>
+                <td>{{i.kehadiran}}</td>
+              </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+      </div>
+    </div>
+</div>
+<script>
+  $('.js-pscroll').each(function () {
+      var ps = new PerfectScrollbar(this);
+
+      $(window).on('resize', function () {
+          ps.update();
+      })
+  });
+
+
+</script>  
+
+{%endblock%}
